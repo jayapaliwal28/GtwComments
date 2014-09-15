@@ -20,6 +20,7 @@ class CommentsController extends AppController {
         if (!empty($this->request->named['ref_id'])) {
 			$this->refId = $this->request->named['ref_id'];
 		}
+		$this->Auth->allow('get_comment');
     }
 	
     public function index($type = NULL) {

@@ -7,15 +7,24 @@ echo $this->GtwRequire->req($this->Html->url('/',true).'GtwComments/js/comment.j
     <div class="row">
         <div class="col-md-12 newcomment">
             <div class="media">
-                <a class="pull-left fa fa-user fa-3x fa-border" href="#" title="<?php echo $this->Session->read('Auth.User.first')?>">
+                <a class="pull-left fa fa-user fa-2x fa-border" href="#" title="<?php echo $this->Session->read('Auth.User.first')?>">
                     &nbsp;
                 </a>
                 <div class="media-body">                  
-                    <textarea name="data[Comment][comment]" class="textarea" rows="2" id="CommentComment"></textarea>
-                    <?php echo $this->Form->submit('Submit', array(
+					<?php if($this->Session->check('Auth.User.id')){?>
+						<textarea name="data[Comment][comment]" class="textarea" rows="2" id="CommentComment" placeholder="<?php echo __('Add your comment')?>"></textarea>
+						<?php 
+							echo $this->Form->submit('Submit', array(
                                                     'div' => false,
                                                     'class' => 'btn btn-primary postbutton'
-                    )); ?>
+							)); 						
+						?>
+					<?php }else{?>	
+						<textarea name="data[Comment][comment]" class="textarea" rows="2" id="CommentComment" placeholder="<?php echo __('Please login to post your comment')?>" disabled></textarea>
+						<?php 
+							echo $this->Html->link('Submit','javascript:void(0);', array('class' => 'btn btn-primary postbutton')); 						
+						?>
+					<?php } ?>
                 </div>
             </div>            
         </div>
