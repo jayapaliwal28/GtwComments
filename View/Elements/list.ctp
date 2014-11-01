@@ -1,5 +1,5 @@
 <div class="media">
-    <a class="pull-left fa fa-user fa-3x fa-border" href="javascript:void(0)" title="<?php echo $comment['User']['first']?>">
+    <a class="pull-left fa fa-user fa-2x fa-border" href="javascript:void(0)" title="<?php echo $comment['User']['first']?>">
 		&nbsp;
     </a>
     <div class="media-body">                  
